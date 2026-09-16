@@ -41,7 +41,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y mysql-client
           mysql -h 127.0.0.1 -u root -prootpassword < db/create-db.sql
-          mysql -h 127.0.0.1 -u root -prootpassword -e "CREATE USER IF NOT EXISTS 'myusername'@'127.0.0.1' IDENTIFIED BY 'mypassword'; GRANT ALL PRIVILEGES ON cicdtest.* TO 'myusername'@'127.0.0.1'; FLUSH PRIVILEGES;"
+          mysql -h 127.0.0.1 -u root -prootpassword -e "CREATE USER IF NOT EXISTS 'myusername'@'%' IDENTIFIED BY 'mypassword'; GRANT ALL PRIVILEGES ON cicdtest.* TO 'myusername'@'%'; FLUSH PRIVILEGES;"
 
       - name: Build
         run: npm run build
